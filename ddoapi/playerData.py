@@ -4,14 +4,14 @@ import json
 class playerData:
 
     urls_expire_after = {
-        'https://www.playeraudit.com/api/?s=sarlona': 180,
-        'https://www.playeraudit.com/api/?s=argonnessen': 180,
-        'https://www.playeraudit.com/api/?s=cannith': 180,
-        'https://www.playeraudit.com/api/?s=ghallanda': 180,
-        'https://www.playeraudit.com/api/?s=khyber': 180,
-        'https://www.playeraudit.com/api/?s=orien': 180,
-        'https://www.playeraudit.com/api/?s=thelanis': 180,
-        'https://www.playeraudit.com/api/?s=wayfinder': 180
+        'https://www.playeraudit.com/api/players?s=sarlona': 180,
+        'https://www.playeraudit.com/api/players?s=argonnessen': 180,
+        'https://www.playeraudit.com/api/players?s=cannith': 180,
+        'https://www.playeraudit.com/api/players?s=ghallanda': 180,
+        'https://www.playeraudit.com/api/players?s=khyber': 180,
+        'https://www.playeraudit.com/api/players?s=orien': 180,
+        'https://www.playeraudit.com/api/players?s=thelanis': 180,
+        'https://www.playeraudit.com/api/players?s=wayfinder': 180
     }
 
     session = CachedSession(urls_expire_after=urls_expire_after)
