@@ -22,13 +22,13 @@ class playerData:
 
     def request_data(self):
         server = self.server.lower()
-        #with self.session.cache_disabled():
         server_data = self.session.get('https://www.playeraudit.com/api/players?s=' + server)
         return server_data.text
 
     def get_character_info(self):
         characterName = self.characterName.lower()
-        server_data = json.loads(self.request_data())
+        apiResponse = self.request_data()
+        server_data = json.loads(apiResponse)
         for players in server_data['Players']:
             if players['Name'].lower() == characterName:
                 return(players)

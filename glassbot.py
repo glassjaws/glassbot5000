@@ -1,4 +1,3 @@
-from imp import load_module
 import os
 from wsgiref.simple_server import WSGIRequestHandler # for importing env vars for the bot to use
 from dotenv import dotenv_values
@@ -34,11 +33,16 @@ class Bot(commands.Bot):
     # Since we have commands and are overriding the default `event_message`
     # We must let the bot know we want to handle and invoke our commands...
     await self.handle_commands(message)
+    
+  @commands.command()
+  async def reload_bot(self, ctx: commands.Context):
+    if ctx.author.name == 'glass_jaws':
+      print(f'{ctx.author.name} is reloading the bot_commands module')
+      bot.reload_module('bot_commands')
+      await ctx.send(f'Bot Commands module reloaded')
+    else:
+      await ctx.send(f'You do not have permission to run this command {ctx.author.name}')
 
-  async def player_done(self):
-    print('Finished playing sound!')
-    
-    
 local_config = dotenv_values(".env")
 bot = Bot()
 bot.load_module('bot_commands')
